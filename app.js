@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import puppeteer from 'puppeteer';
 import express from 'express';
 import cors from 'cors';
@@ -74,6 +77,8 @@ app.get('/start-puppeteer', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on Port:${PORT}`);
 });
